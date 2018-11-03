@@ -8,6 +8,11 @@ from bench.utils import (update_bench, validate_upgrade, pre_upgrade, post_upgra
 from bench import patches
 
 
+@click.command('pull-apps')
+@click.option('--reset', is_flag=True, default=False)
+def pull_apps(reset=False, bench_path='.'):
+	pull_all_apps(bench_path=bench_path, reset=reset)
+
 @click.command('update')
 @click.option('--pull', is_flag=True, help="Pull changes in all the apps in bench")
 @click.option('--patch', is_flag=True, help="Run migrations for all sites in the bench")

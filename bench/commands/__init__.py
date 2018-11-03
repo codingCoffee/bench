@@ -38,7 +38,8 @@ bench_command.add_command(new_app)
 bench_command.add_command(remove_app)
 
 
-from bench.commands.update import update, retry_upgrade, switch_to_branch, switch_to_master, switch_to_develop
+from bench.commands.update import pull_apps, update, retry_upgrade, switch_to_branch, switch_to_master, switch_to_develop
+bench_command.add_command(pull_apps)
 bench_command.add_command(update)
 bench_command.add_command(retry_upgrade)
 bench_command.add_command(switch_to_branch)
@@ -185,3 +186,6 @@ bench_command.add_command(migrate_env)
 from bench.commands.make import exclude_app_for_update, include_app_for_update
 bench_command.add_command(exclude_app_for_update)
 bench_command.add_command(include_app_for_update)
+
+from bench.commands.remote import remote
+bench_command.add_command(remote)

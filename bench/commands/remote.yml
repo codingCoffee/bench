@@ -1,0 +1,16 @@
+---
+
+- name: Run bench commands
+  hosts: "{{ server }}"
+  remote_user: "{{ user }}"
+
+  tasks:
+    - name: Executing the command
+      command: "{{ command }}"
+      args:
+        chdir: "{{ path_to_bench }}"
+      register: result
+
+    - debug:
+        var: result.stdout_lines
+...
